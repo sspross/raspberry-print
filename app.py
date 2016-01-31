@@ -1,9 +1,8 @@
-from os.path import expanduser
 from subprocess import call
 
 
 def main():
-    directory = expanduser("~/files")
+    directory = '/media/usb'
     while True:
         name = raw_input('Type a file name: ')
         try:
