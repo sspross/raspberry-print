@@ -20,14 +20,9 @@
 
 ### Mount usb stick
 
-See http://raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-raspberry-pi/
-
-1. create mount point
-
-        sudo mkdir /media/usb
-        sudo chown -R pi:pi /media/usb
-
-2. add mount to `.profile` file `sudo mount /dev/sda1 /media/usb -o uid=pi,gid=pi`
+1. Create mount point with `sudo mkdir /media/usb && sudo chown -R pi:pi /media/usb`
+2. Get usb stick uuid with `sudo blkid`
+2. Add `UUID=7E56-120C /media/usb vfat auto,users,rw,uid=1000,gid=100,umask=0002 0 0` to `/etc/fstab`
 
 ### Install script
 
@@ -38,10 +33,9 @@ See http://raspberrypi-spy.co.uk/2014/05/how-to-mount-a-usb-flash-disk-on-the-ra
 
 See https://wiki.debian.org/SystemPrinting
 
-1. `sudo aptitude update`
-2. `sudo aptitude install cups cups-client elinks`
-3. `sudo service cups start`
-4. `sudo usermod -a -G lpadmin pi`
+1. `sudo aptitude install cups cups-client elinks`
+2. `sudo service cups start`
+3. `sudo usermod -a -G lpadmin pi`
 4. `sudo elinks http://localhost:631/`
 5. Administration -> Add Printer -> Config Printer -> Set default for server
 6. check default printer setting `lpstat -d`
@@ -50,11 +44,9 @@ See https://wiki.debian.org/SystemPrinting
 
 1. add start script command to `.profile` file `python /home/pi/raspberry-print/app.py`
 
-### Get hama keypad working
+### Activate numlock by default
 
-1. `sudo apt-get install python-dev python-pip`
-
-https://www.hama.com/00053224/hama-keypad
+1. Uncomment `LEDS=+num` in `/etc/kbd/config`
 
 
 
