@@ -36,7 +36,7 @@ See https://wiki.debian.org/SystemPrinting
 1. `sudo aptitude install cups cups-client elinks`
 2. `sudo service cups start`
 3. `sudo usermod -a -G lpadmin pi`
-4. `sudo elinks http://localhost:631/`
+4. `sudo elinks http://localhost:631/` (or open tunnel to use a real browser `ssh pi@192.168.2.2 -T -L 3631:localhost:631`)
 5. Administration -> Add Printer -> Config Printer -> Set default for server
 6. check default printer setting `lpstat -d`
 

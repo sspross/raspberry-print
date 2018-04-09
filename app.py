@@ -5,7 +5,7 @@ def main():
     directory = '/media/usb'
     while True:
         name = raw_input('Type a file name: ')
-        command = ['lp']
+        command = ['lp', '-o', 'sides=two-sided-long-edge']
 
         # check if multiple copies are requested
         if '*' in name:
