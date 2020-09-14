@@ -45,7 +45,7 @@ See https://wiki.debian.org/SystemPrinting
 ### Activate numlock by default
 
 1. `sudo apt-get install numlockx`
-2. 
+2. Add line `greeter-setup-script=/usr/bin/numlockx on` to `/etc/lightdm/lightdm.conf`
 
 
 
