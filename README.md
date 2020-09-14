@@ -1,13 +1,11 @@
 ## Setup
 
-1. Downloaded RASPBIAN JESSIE LITE image from http://raspberrypi.org/downloads
-2. Install it on SD card, see http://raspberrypi.org/documentation/installation/installing-images/mac.md
-3. Connect raspberry to ethernet and start up
-4. Find IP `nmap -sn 192.168.1.1/24` 
-5. Connect to raspberry with ssh
-6. `sudo apt-get update`
+1. Install raspberry on SD card... (don't forget to place a file called `ssh` on boot disk!)
+2. Connect raspberry to ethernet and start up
+3. Connect to raspberry with ssh `ssh pi@raspberrypi.local`
+4. `sudo apt-get update`
 
-### Enable auto login
+### Enable auto login (maybe already active!!)
 
 1. `sudo nano /etc/systemd/system/getty@tty1.service.d/autologin.conf`
 
@@ -36,7 +34,7 @@ See https://wiki.debian.org/SystemPrinting
 1. `sudo aptitude install cups cups-client elinks`
 2. `sudo service cups start`
 3. `sudo usermod -a -G lpadmin pi`
-4. `sudo elinks http://localhost:631/` (or open tunnel to use a real browser `ssh pi@192.168.2.2 -T -L 3631:localhost:631`)
+4. `sudo elinks http://localhost:631/` (or open tunnel to use a real browser `ssh pi@raspberrypi.local -T -L 3631:localhost:631`)
 5. Administration -> Add Printer -> Config Printer -> Set default for server
 6. check default printer setting `lpstat -d`
 
@@ -46,7 +44,8 @@ See https://wiki.debian.org/SystemPrinting
 
 ### Activate numlock by default
 
-1. Uncomment `LEDS=+num` in `/etc/kbd/config`
+1. `sudo apt-get install numlockx`
+2. 
 
 
 
